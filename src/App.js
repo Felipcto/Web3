@@ -79,7 +79,7 @@ const BlogApp = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Carregando...</div>;
   }
 
   if (errorMsg) {
@@ -88,9 +88,9 @@ const BlogApp = () => {
 
   return (
     <div>
-      <h1>Create Blog Post</h1>
+      <h1>Criar Post do Blog</h1>
       <PostForm onSubmit={addPost} />
-      <h1>Blog Posts</h1>
+      <h1>Post do blog</h1>
       <input type="text" placeholder="Enter post ID" value={searchId} onChange={handleSearch} />
       <PostsList posts={filteredPosts} deletePost={deletePost} updatePost={updatePost} />
     </div>
@@ -134,15 +134,15 @@ const PostsList = ({ posts, deletePost, updatePost }) => {
                 value={editedBody}
                 onChange={(e) => setEditedBody(e.target.value)}
               ></textarea>
-              <button onClick={handleSave}>Save</button>
-              <button onClick={handleCancel}>Cancel</button>
+              <button onClick={handleSave}>Salvar</button>
+              <button onClick={handleCancel}>Cancelar</button>
             </div>
           ) : (
             <div>
               <h2>{post.title}</h2>
               <p>{post.body}</p>
-              <button onClick={() => deletePost(post.id)}>Delete</button>
-              <button onClick={() => handleEdit(post)}>Edit</button>
+              <button onClick={() => handleEdit(post)}>Editar</button>
+              <button onClick={() => deletePost(post.id)}>Deletar</button>
             </div>
           )}
         </div>
@@ -177,7 +177,7 @@ const PostForm = ({ onSubmit }) => {
         onChange={(e) => setBody(e.target.value)}
         required
       ></textarea>
-      <button type="submit">Create</button>
+      <button type="submit">Criar novo post</button>
     </form>
   );
 };
